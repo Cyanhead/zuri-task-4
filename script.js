@@ -1,5 +1,5 @@
 // ! Hello dear mentor, the last function is not a part of the given task,
-// ! but i used it to achieve something else.Please kindly ignore and check out the first two functions
+// ! but i used it to achieve something else. Please kindly ignore and check out the first two functions
 
 let convertFahrToCelsius = t => {
   if (typeof t === 'number') {
