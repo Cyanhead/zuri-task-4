@@ -57,16 +57,16 @@ let convertFahrToCelsius = t => {
   }
 };
 
-console.log(convertFahrToCelsius(77));
-console.log(convertFahrToCelsius('77'));
-console.log(convertFahrToCelsius([77]));
-console.log(convertFahrToCelsius('seventy seven'));
-console.log(convertFahrToCelsius(['seventy', 7]));
-console.log(convertFahrToCelsius({ seventy: 7 }));
-console.log(convertFahrToCelsius());
-console.log(convertFahrToCelsius(''));
-console.log(convertFahrToCelsius(true));
-console.log(convertFahrToCelsius({ a: 1, b: 2 }));
+// console.log(convertFahrToCelsius(77));
+// console.log(convertFahrToCelsius('77'));
+// console.log(convertFahrToCelsius([77]));
+// console.log(convertFahrToCelsius('seventy seven'));
+// console.log(convertFahrToCelsius(['seventy', 7]));
+// console.log(convertFahrToCelsius({ seventy: 7 }));
+// console.log(convertFahrToCelsius());
+// console.log(convertFahrToCelsius(''));
+// console.log(convertFahrToCelsius(true));
+// console.log(convertFahrToCelsius({ a: 1, b: 2 }));
 
 let checkYuGiOh = n => {
   let analysis = num => {
@@ -115,14 +115,14 @@ let checkYuGiOh = n => {
   }
 };
 
-console.log(checkYuGiOh(7));
-console.log(checkYuGiOh('7'));
-console.log(checkYuGiOh([7]));
-console.log(checkYuGiOh('number seven'));
-console.log(checkYuGiOh(['number', 7]));
-console.log(checkYuGiOh({ number: 7 }));
-console.log(checkYuGiOh());
-console.log(checkYuGiOh(''));
-console.log(checkYuGiOh(true));
-console.log(checkYuGiOh({ a: 1, b: 2 }));
+// console.log(checkYuGiOh(7));
+// console.log(checkYuGiOh('7'));
+// console.log(checkYuGiOh([7]));
+// console.log(checkYuGiOh('number seven'));
+// console.log(checkYuGiOh(['number', 7]));
+// console.log(checkYuGiOh({ number: 7 }));
+// console.log(checkYuGiOh());
+// console.log(checkYuGiOh(''));
+// console.log(checkYuGiOh(true));
+// console.log(checkYuGiOh({ a: 1, b: 2 }));
 // console.log(checkYuGiOh('the quick brown fox jumped over the lazy dog'));
