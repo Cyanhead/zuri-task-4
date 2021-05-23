@@ -1,28 +1,80 @@
-// ! Hello dear mentor, the last function is not a part of the given task,
-// ! but i used it to achieve something else. Please kindly ignore and check out the first two functions
-
 let convertFahrToCelsius = t => {
-  if (typeof t === 'number') {
-    let result = (t - 32) / 1.8;
-    return `${result.toFixed(4)} °C`;
-  } else {
-    let T = Number(t);
-    if (T.toString() === 'NaN') {
-      return `${t} is not a valid number but ${
-        isFirstLetterVowel(t) ? 'an' : 'a'
-      } ${typeof t}`;
-    } else {
-      return convertFahrToCelsius(T);
-    }
+  let conversion = temp => {
+    let result = (temp - 32) / 1.8;
+    return `${result.toFixed(4)}°C`;
+    // toFixed() rounds it up to the given number in decimal places
+  };
+
+  switch (typeof t) {
+    case 'number':
+      return conversion(t);
+
+    case 'string':
+      if (t === '') {
+        return `${JSON.stringify(
+          t,
+          null,
+          1
+        )} is not a valid number but a ${typeof t}`;
+        // JSON.stringify pretty much takes whatever input and converts it to a JSON string
+        // it takes three parameters, the desired input, a 'replacer' to replace stuff in the
+        // stringification process and a 'spacer' for whitespacing and readability
+      } else {
+        if (conversion(Number(t)) === 'NaN°C') {
+          return `${JSON.stringify(
+            t,
+            null,
+            1
+          )} is not a valid number but a ${typeof t}`;
+        } else {
+          return conversion(Number(t));
+        }
+      }
+
+    case 'boolean':
+      console.log(t);
+      return `${JSON.stringify(
+        t,
+        null,
+        1
+      )} is not a valid number but a ${typeof t}`;
+
+    case 'object':
+      return `${JSON.stringify(
+        t,
+        null,
+        1
+      )} is not a valid number but an ${typeof t}`;
+
+    default:
+      if (conversion(Number(t)) === 'NaN°C') {
+        return `${JSON.stringify(
+          t
+        )} is not a valid number but a/an ${typeof t}`;
+      } else {
+        return conversion(Number(t));
+      }
   }
 };
 
+console.log(convertFahrToCelsius(77));
+console.log(convertFahrToCelsius('77'));
+console.log(convertFahrToCelsius([77]));
+console.log(convertFahrToCelsius('seventy seven'));
+console.log(convertFahrToCelsius(['seventy', 7]));
+console.log(convertFahrToCelsius({ seventy: 7 }));
+console.log(convertFahrToCelsius());
+console.log(convertFahrToCelsius(''));
+console.log(convertFahrToCelsius(true));
+console.log(convertFahrToCelsius({ a: 1, b: 2 }));
+
 let checkYuGiOh = n => {
-  let array = [];
-  for (let i = 1; i <= n; i++) {
-    array.push(i);
-  }
-  if (typeof n === 'number') {
+  let analysis = num => {
+    let array = [];
+    for (let i = 1; i <= num; i++) {
+      array.push(i);
+    }
+
     for (let i = 0; i < array.length; i++) {
       if (array[i] % 2 === 0 && array[i] % 3 === 0 && array[i] % 5 === 0) {
         array[i] = 'yu-gi-oh';
@@ -40,71 +92,37 @@ let checkYuGiOh = n => {
         array[i] = 'oh';
       }
     }
-  } else {
-    let N = Number(n);
-    if (N.toString() === 'NaN') {
-      return `invalid parameter: '${n}'`;
-    } else {
-      return checkYuGiOh(N);
-    }
+    return array;
+  };
+
+  switch (typeof n) {
+    case 'number':
+      return analysis(n);
+
+    case 'string':
+      if (n === '') {
+        return `invalid parameter: ${JSON.stringify(n, null, 1)}`;
+      } else {
+        if (Number(n).toString() === 'NaN') {
+          return `invalid parameter: ${JSON.stringify(n, null, 1)}`;
+        } else {
+          return analysis(Number(n));
+        }
+      }
+
+    default:
+      return `invalid parameter: ${JSON.stringify(n, null, 1)}`;
   }
-  return array;
 };
 
-// * kindly ignore the below
-
-function isFirstLetterVowel(value) {
-  let valueType = typeof value;
-  let firstLetter = valueType.valueOf().toString()[0];
-  let alphabets = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
-  ];
-  for (let i = 0; i < alphabets.length; i++) {
-    switch (firstLetter) {
-      case alphabets[0]:
-        return true;
-
-      case alphabets[4]:
-        return true;
-
-      case alphabets[8]:
-        return true;
-
-      case alphabets[14]:
-        return true;
-
-      case alphabets[20]:
-        return true;
-
-      default:
-        return false;
-    }
-  }
-}
-
-// * kindly ignore the above
+console.log(checkYuGiOh(7));
+console.log(checkYuGiOh('7'));
+console.log(checkYuGiOh([7]));
+console.log(checkYuGiOh('number seven'));
+console.log(checkYuGiOh(['number', 7]));
+console.log(checkYuGiOh({ number: 7 }));
+console.log(checkYuGiOh());
+console.log(checkYuGiOh(''));
+console.log(checkYuGiOh(true));
+console.log(checkYuGiOh({ a: 1, b: 2 }));
+// console.log(checkYuGiOh('the quick brown fox jumped over the lazy dog'));
